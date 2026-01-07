@@ -20,7 +20,7 @@
   )
   set figure(
     alt: "Unset",
-    placement: auto,
+    placement: none,
     scope: "column",
     kind: auto,
     supplement: auto,

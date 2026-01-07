@@ -18,15 +18,14 @@ On appelle _univers_ le quadruplet $U = (D, E, R, e_0)$, où :
 === Géométrie d'un univers
 
 Un univers est une sphère de dimension $n_d$ (aussi appelée hypersphère),
-composée de _cellules_ (voir @hypersphere). Chaque cellule est quant à elle un
-hypercube, de dimension $n_d$ également. Le nombre de cellules sur chaque
-dimension est donnée par $D = (d_1, d_2, ..., d_(n_d)) in NN^(n_d)$, avec $d_i$
-le nombre de cellules sur la dimension $i$.
+composée de _cellules_ (voir @hypersphere). Chaque cellule est un hypercube, de
+dimension $n_d$ également. Le nombre de cellules sur chaque dimension est donnée
+par $D = (d_1, d_2, ..., d_(n_d)) in NN^(n_d)$, avec $d_i$ le nombre de cellules
+sur la dimension $i$.
 
 #figure(
   image("data/images/hypersphere.svg", width: 40%),
   caption: [Une sphère de dimension 2, décomposée en plusieurs cellules],
-  placement: auto,
 ) <hypersphere>
 
 De par le fait que l'univers soit une sphère de dimension $n_d$ et que les
@@ -56,7 +55,6 @@ grilles sont la représentation à "plat" de l'hypersphère.
   caption: [Un univers de dimensions $D = (#w, #h)$, sous forme de grille. Les
     cellules bleue, rouge et verte possèdent chacune $2n_d = 4$ voisins,
     affichés dans leur couleur respective, légèrement estompée.],
-  placement: auto,
 ) <voisins>
 
 ==== Taille d'un univers
@@ -89,12 +87,24 @@ Il n'existe qu'une seule contrainte liée à la diversité d'un univers : il doi
 avoir au mimimum un élément disponible. Autrement dit, $E != nothing$ et
 $d(U) gt 0$.
 
+#figure(
+  elements(("empty_square", "car", "stone", "tree", "cat")),
+  caption: [Un univers composé de 5 éléments différents : 0, 1, 2, 3 et 4,
+    respectivement représentés par une cellule vide, une voiture, un rocher, un
+    arbre et un chat.],
+)
+
 *Remarque : * Puisque qu'il n'y a pas de limite sur le nombre maximal d'éléments
 possibles, on peut imaginer un univers $U_1$ avec $d(U_1) > |U_1|$, ce qui
 corresponderait à un univers dont la diversité est si importante qu'il est
-impossible de la représenter entièrement au sein d'un même _état_ (voir chapitre
-sur les états).
+impossible de représenter tous ses différents éléments au sein d'un même _état_
+(voir chapitre sur les états).
 
-#figure(elements(), caption: [Un univers composé de 5 éléments différents : 0,
-  1, 2, 3 et 4, respectivement représenté par une cellule vide, une voiture, un
-  rocher et un arbre.])
+==== Profondeur d'un univers
+
+La _profondeur_ d'un univers correspond au nombre d'états distincts qu'il peut
+représenter. La _profondeur_ d'un univers $U$ est notée $p(U)$ et est égale à :
+$ p(U) = |U| times d(U) $
+
+Comme le montre cette formule, la profondeur d'un univers est intrinsèquement
+liée à sa diversité et à sa taille.
