@@ -92,7 +92,7 @@ $d(U) gt 0$.
   caption: [Un univers composé de 5 éléments différents : 0, 1, 2, 3 et 4,
     respectivement représentés par une cellule vide, une voiture, un rocher, un
     arbre et un chat.],
-)
+) <elements>
 
 *Remarque : * Puisque qu'il n'y a pas de limite sur le nombre maximal d'éléments
 possibles, on peut imaginer un univers $U_1$ avec $d(U_1) > |U_1|$, ce qui
@@ -108,3 +108,42 @@ $ p(U) = |U| times d(U) $
 
 Comme le montre cette formule, la profondeur d'un univers est intrinsèquement
 liée à sa diversité et à sa taille.
+
+=== États d'un univers
+
+Un _état_ correspond à une configuration à un instant $t$ de notre univers.
+Mathématiquement, un état correspond à une matrice de dimensions $D$ pour
+laquelle chaque élément correspond à un élément de $E$.
+
+Afin de faciliter la représentation des états, ces derniers seront représentés
+graphiquement sous forme d'une grille remplie de différents symboles plutôt que
+sous la forme d'une matrice. Ainsi, l'état $e_a$ suivant, associé à l'ensemble
+des éléments $E$ défini précédemment (voir @elements) peut être représenté de
+manière beaucoup plus claire (voir @representation_exemple)
+
+$
+  e_a = mat(
+    0, 2, 1, 3, 0, 0;
+    0, 0, 1, 0, 4, 0;
+    0, 3, 0, 2, 0, 0;
+    1, 0, 0, 3, 4, 0;
+    0, 2, 0, 0, 0, 0;
+    2, 0, 3, 0, 0, 0;
+  )
+$
+
+#figure(
+  elements(("empty_square", "car", "stone", "tree", "cat")),
+  caption: [Représentation graphique de $e_a$],
+) <representation_exemple> // TODO
+
+==== Équivalences d'états
+
+Plusieurs états, bien que différents si l'on compare la matrice qui leur est
+associés peuvent être considérés comme équivalents. Cela est notamment dû à la
+géométrie de l'univers ainsi qu'aux restrictions sur ses règles. Deux états
+$e_a$ et $e_b$ sont notés équivalents ($e_a <=> e_b$) si et seulement si :
+
+- Il est possible d'obtenir $e_b$ à partir de $e_a$ en appliquant une
+  translation sur un ou plusieurs axes.
+- ...
