@@ -1,4 +1,5 @@
 #let COLORS = (
+  white: rgb("ffffff"),
   red: rgb("ff0000"),
   green: rgb("00ff00"),
   blue: rgb("0000ff"),

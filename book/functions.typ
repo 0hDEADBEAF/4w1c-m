@@ -3,23 +3,23 @@
 #import "colors.typ": COLORS
 #import "symbols.typ": SYMBOLS
 
-#let coord(x, y) = {
-  (x: x, y: y)
-}
-
-#let grid(w, h, colors: (), with_axis: true) = {
-  canvas(length: 0.5cm, {
+#let repr(w, h, data: (), symbols: ()) = {
+  canvas(length: 0.6cm, {
     import draw: *
 
     grid(
       (0, 0),
       (w, h),
     )
-    for (color, positions) in colors.pairs() {
-      for pos in positions {
-        let x = calc.rem-euclid(pos.at(0), w)
-        let y = calc.rem-euclid(pos.at(1), h)
-        rect((x, y), (x + 1, y + 1), fill: COLORS.at(color))
+    for (i, row) in data.enumerate() {
+      for (j, idx) in row.enumerate() {
+        let el = symbols.at(idx)
+        if type(el) == color {
+          rect((j, h - i - 1), (j + 1, h - i), fill: el)
+        } else if type(el) == str {
+          rect((j, h - i - 1), (j + 1, h - i))
+          content((j + 0.5, h - i - 0.5), el)
+        }
       }
     }
   })
@@ -27,8 +27,10 @@
 
 #let elements(symbols) = {
   let string_content = ""
-  for (i, symbol_name) in symbols.enumerate() {
-    let symbol = SYMBOLS.at(symbol_name)
+  for (i, symbol) in symbols.enumerate() {
+    if symbol == COLORS.white {
+      symbol = SYMBOLS.empty_square
+    }
     string_content += $#i arrow symbol$ + "\n"
   }
   set par(first-line-indent: (amount: 0em, all: true))
@@ -38,7 +40,7 @@
 
     canvas(length: height + 0.3cm, {
       import draw: *
-      content((0, 0), (4, symbols.len() + 1), box(
+      content((0, 0), (3.5, symbols.len() + 1), box(
         par(
           justify: false,
           leading: 0.3cm,
@@ -50,5 +52,20 @@
       ))
     })
   }
+}
+
+#let universe(symbols: (), grid_size: (1, 1), state: ()) = {
+  grid(
+    columns: 2,
+    align: horizon,
+    gutter: 10pt,
+    elements(symbols),
+    repr(
+      grid_size.at(0),
+      grid_size.at(1),
+      data: state,
+      symbols: symbols,
+    ),
+  )
 }
 

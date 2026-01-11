@@ -1,6 +1,7 @@
 #import "rules.typ": book
-#import "functions.typ": coord, elements, grid
-#import "colors.typ": *
+#import "functions.typ": elements, repr, universe
+#import "colors.typ": COLORS
+#import "symbols.typ": SYMBOLS
 
 #show: book
 
@@ -40,16 +41,29 @@ grilles sont la représentation à "plat" de l'hypersphère.
 #let w = 10
 #let h = 10
 #figure(
-  grid(
+  repr(
     w,
     h,
-    colors: (
-      green: ((0, 0),),
-      pastel_green: ((0, 1), (1, 0), (-1, 0), (0, -1)),
-      red: ((4, 5),),
-      pastel_red: ((3, 5), (4, 4), (5, 5), (4, 6)),
-      blue: ((9, 5),),
-      pastel_blue: ((8, 5), (9, 4), (9, 6), (10, 5)),
+    data: (
+      (1, 2, 0, 0, 0, 0, 0, 0, 0, 2),
+      (2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+      (0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+      (0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+      (0, 0, 0, 0, 4, 0, 0, 0, 0, 6),
+      (6, 0, 0, 4, 3, 4, 0, 0, 6, 5),
+      (0, 0, 0, 0, 4, 0, 0, 0, 0, 6),
+      (0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+      (0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+      (2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+    ),
+    symbols: (
+      COLORS.white,
+      COLORS.green,
+      COLORS.pastel_green,
+      COLORS.red,
+      COLORS.pastel_red,
+      COLORS.blue,
+      COLORS.pastel_blue,
     ),
   ),
   caption: [Un univers de dimensions $D = (#w, #h)$, sous forme de grille. Les
@@ -88,7 +102,13 @@ avoir au mimimum un élément disponible. Autrement dit, $E != nothing$ et
 $d(U) gt 0$.
 
 #figure(
-  elements(("empty_square", "car", "stone", "tree", "cat")),
+  elements((
+    SYMBOLS.empty_square,
+    SYMBOLS.car,
+    SYMBOLS.stone,
+    SYMBOLS.tree,
+    SYMBOLS.cat,
+  )),
   caption: [Un univers composé de 5 éléments différents : 0, 1, 2, 3 et 4,
     respectivement représentés par une cellule vide, une voiture, un rocher, un
     arbre et un chat.],
@@ -133,7 +153,24 @@ $
 $
 
 #figure(
-  elements(("empty_square", "car", "stone", "tree", "cat")),
+  universe(
+    symbols: (
+      COLORS.white,
+      SYMBOLS.car,
+      SYMBOLS.stone,
+      SYMBOLS.tree,
+      SYMBOLS.cat,
+    ),
+    state: (
+      (0, 2, 1, 3, 0, 0),
+      (0, 0, 1, 0, 4, 0),
+      (0, 3, 0, 2, 0, 0),
+      (1, 0, 0, 3, 4, 0),
+      (0, 2, 0, 0, 0, 0),
+      (2, 0, 3, 0, 0, 0),
+    ),
+    grid_size: (6, 6),
+  ),
   caption: [Représentation graphique de $e_a$],
 ) <representation_exemple> // TODO
 
