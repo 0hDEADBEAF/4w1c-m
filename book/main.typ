@@ -183,4 +183,71 @@ $e_a$ et $e_b$ sont notés équivalents ($e_a <=> e_b$) si et seulement si :
 
 - Il est possible d'obtenir $e_b$ à partir de $e_a$ en appliquant une
   translation sur un ou plusieurs axes.
-- ...
+
+#figure(
+  grid(
+    columns: 2,
+    gutter: 10pt,
+    align: horizon,
+    universe(
+      symbols: (COLORS.white, SYMBOLS.cat),
+      state: ((0, 0, 0), (1, 0, 0), (0, 0, 0)),
+      grid_size: (3, 3),
+    ),
+    repr(
+      3,
+      3,
+      data: ((0, 1, 0), (0, 0, 0), (0, 0, 0)),
+      symbols: (COLORS.white, SYMBOLS.cat),
+    ),
+  ),
+  caption: [Exemple de deux états équivalents : l'état de droite est obtenable à
+    partir de l'état de gauche en appliquant la translation $(1, 1)$.],
+)
+- Il est possible d'obtenir $e_b$ à partir de $e_a$ en appliquant une rotation
+  sur un ou plusieurs axes.
+
+  #figure(
+    grid(
+      columns: 2,
+      gutter: 10pt,
+      align: horizon,
+      universe(
+        symbols: (COLORS.white, SYMBOLS.cat, SYMBOLS.car),
+        state: ((1, 2, 0), (2, 0, 0), (0, 0, 0)),
+        grid_size: (3, 3),
+      ),
+      repr(
+        3,
+        3,
+        data: ((0, 0, 0), (2, 0, 0), (1, 2, 0)),
+        symbols: (COLORS.white, SYMBOLS.cat, SYMBOLS.car),
+      ),
+    ),
+    caption: [Exemple de deux états équivalents : l'état de droite est obtenable
+      à partir de l'état de gauche en lui appliquant une rotation de 90° vers la
+      gauche.],
+  )
+- Il est possible d'obtenir $e_b$ à partir de $e_a$ en appliquant une rotation
+  et une translation, sur un ou plusieurs axes.
+  #figure(
+    grid(
+      columns: 2,
+      gutter: 10pt,
+      align: horizon,
+      universe(
+        symbols: (COLORS.white, SYMBOLS.cat, SYMBOLS.car),
+        state: ((0, 0, 1), (1, 2, 2), (0, 2, 2)),
+        grid_size: (3, 3),
+      ),
+      repr(
+        3,
+        3,
+        data: ((1, 2, 2), (0, 1, 0), (0, 2, 2)),
+        symbols: (COLORS.white, SYMBOLS.cat, SYMBOLS.car),
+      ),
+    ),
+    caption: [Exemple de deux états équivalents : l'état de droite est obtenable
+      à partir de l'état de gauche en lui appliquant une rotation de 180° suivie
+      d'une translation $(1, 1)$.],
+  )
