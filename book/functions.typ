@@ -3,6 +3,10 @@
 #import "colors.typ": COLORS
 #import "symbols.typ": SYMBOLS
 
+#let create_array(rows, cols) = {
+  ((none,) * cols,) * rows
+}
+
 #let repr(w, h, data: (), symbols: ()) = {
   canvas(length: 0.6cm, {
     import draw: *
@@ -23,6 +27,25 @@
       }
     }
   })
+}
+
+#let get_repr_from_int(w, h, n, diversity, symbols) = {
+  let data = create_array(w, h)
+  for i in range(w) {
+    for j in range(h) {
+      data.at(i).at(j) = calc.rem(
+        calc.div-euclid(n, calc.pow(diversity, (w - i - 1) * w + h - j - 1)),
+        diversity,
+      )
+    }
+  }
+
+  repr(
+    w,
+    h,
+    data: data,
+    symbols: symbols,
+  )
 }
 
 #let elements(symbols) = {
