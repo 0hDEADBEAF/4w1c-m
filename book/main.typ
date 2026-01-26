@@ -120,25 +120,19 @@ corresponderait à un univers dont la diversité est si importante qu'il est
 impossible de représenter tous ses différents éléments au sein d'un même _état_
 (voir chapitre sur les états).
 
-==== Profondeur d'un univers
-
-La _profondeur_ d'un univers correspond au nombre d'états distincts qu'il peut
-représenter. La _profondeur_ d'un univers $U$ est notée $p(U)$ et est égale à :
-$ p(U) = |U| times d(U) $
-
-Comme le montre cette formule, la profondeur d'un univers est intrinsèquement
-liée à sa diversité et à sa taille.
-
 === États d'un univers
 
 Un _état_ correspond à une configuration à un instant $t$ de notre univers.
-Mathématiquement, un état correspond à une matrice de dimensions $D$ pour
-laquelle chaque élément correspond à un élément de $E$.
+Mathématiquement, un état correspond à un tenseur d'ordre $n_d$ et de dimensions
+$D$ pour lequel chaque élément appartient à $E$.
+
+On note $Tau_D(E)$ l'ensemble des tenseurs de dimensions $D$ dont les
+coefficients appartiennent à $E$.
 
 Afin de faciliter la représentation des états, ces derniers seront représentés
 graphiquement sous forme d'une grille remplie de différents symboles plutôt que
-sous la forme d'une matrice. Ainsi, l'état $e_a$ suivant, associé à l'ensemble
-des éléments $E$ défini précédemment (voir @elements) peut être représenté de
+sous la forme de tenseurs. Ainsi, l'état $e_a$ suivant, associé à l'ensemble des
+éléments $E$ défini précédemment (voir @elements) peut être représenté de
 manière beaucoup plus claire (voir @representation_exemple)
 
 $
@@ -174,12 +168,23 @@ $
   caption: [Représentation graphique de $e_a$],
 ) <representation_exemple> // TODO
 
+
+==== Profondeur d'un univers
+
+La _profondeur_ d'un univers correspond au nombre d'états qu'il peut
+représenter. La _profondeur_ d'un univers $U$ est notée $p(U)$ et est égale à :
+$ p(U) = |Tau_D(E)| = d(U)^(|U|) $
+
+Comme le montre cette formule, la profondeur d'un univers est intrinsèquement
+liée à sa diversité et à sa taille.
+
 ==== Équivalences d'états
 
-Plusieurs états, bien que différents si l'on compare la matrice qui leur est
-associés peuvent être considérés comme équivalents. Cela est notamment dû à la
-géométrie de l'univers ainsi qu'aux restrictions sur ses règles. Deux états
-$e_a$ et $e_b$ sont notés équivalents ($e_a <=> e_b$) si et seulement si :
+Plusieurs états, bien que strictement mathématiquement (tenseurs non égaux)
+peuvent être considérés comme équivalents. Cela est notamment dû à la géométrie
+de l'univers ainsi qu'aux restrictions sur ses règles.
+
+Deux états $e_a$ et $e_b$ sont équivalents si et seulement si :
 
 - Il est possible d'obtenir $e_b$ à partir de $e_a$ en appliquant une
   translation sur un ou plusieurs axes.
