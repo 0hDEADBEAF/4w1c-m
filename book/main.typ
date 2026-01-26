@@ -18,11 +18,11 @@ On appelle _univers_ le quadruplet $U = (D, E, R, e_0)$, où :
 
 === Géométrie d'un univers
 
-Un univers est une sphère de dimension $n_d$ (aussi appelée hypersphère),
-composée de _cellules_ (voir @hypersphere). Chaque cellule est un hypercube, de
-dimension $n_d$ également. Le nombre de cellules sur chaque dimension est donnée
-par $D = (d_1, d_2, ..., d_(n_d)) in NN^(n_d)$, avec $d_i$ le nombre de cellules
-sur la dimension $i$.
+Un univers est une sphère de dimension $n_d$ (aussi appelée hypersphère), avec
+$n_d = |D|$ et composée de _cellules_ (voir @hypersphere). Chaque cellule est un
+hypercube, de dimension $n_d$ également. Le nombre de cellules sur chaque
+dimension est donnée par $D = (d_1, d_2, ..., d_(n_d)) in NN^(n_d)$, avec $d_i$
+le nombre de cellules sur la dimension $i$.
 
 #figure(
   image("data/images/hypersphere.svg", width: 40%),
@@ -126,8 +126,8 @@ Un _état_ correspond à une configuration à un instant $t$ de notre univers.
 Mathématiquement, un état correspond à un tenseur d'ordre $n_d$ et de dimensions
 $D$ pour lequel chaque élément appartient à $E$.
 
-On note $Tau_D(E)$ l'ensemble des tenseurs de dimensions $D$ dont les
-coefficients appartiennent à $E$.
+On note $Tau_(D)(E)$ l'ensemble des tenseurs d'ordre $|D|$, de dimensions $D$ et
+dont les coefficients appartiennent à $E$.
 
 Afin de faciliter la représentation des états, ces derniers seront représentés
 graphiquement sous forme d'une grille remplie de différents symboles plutôt que
@@ -173,10 +173,21 @@ $
 
 La _profondeur_ d'un univers correspond au nombre d'états qu'il peut
 représenter. La _profondeur_ d'un univers $U$ est notée $p(U)$ et est égale à :
-$ p(U) = |Tau_D(E)| = d(U)^(|U|) $
+$ p(U) = |Tau_(D)(E)| = d(U)^(|U|) $
 
 Comme le montre cette formule, la profondeur d'un univers est intrinsèquement
 liée à sa diversité et à sa taille.
+
+==== Opérations sur les états
+
+===== Translations
+
+Une translation est représentée par un vecteur de $n_d$ éléments. On note
+$V_(n_d)(NN)$ l'ensemble des vecteurs de $n_d$ éléments à coefficients naturels.
+
+On définit une loi de composition externe
+$dot.op : Tau_(D)(E) times Tau_(|D|)(NN) arrow.r.long Tau_(D)(E)$ pour
+translater chaque élément d'un état.
 
 ==== Équivalences d'états
 
